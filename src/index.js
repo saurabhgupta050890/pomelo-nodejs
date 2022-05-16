@@ -4,6 +4,7 @@ const Path = require("path");
 const Hapi = require("@hapi/hapi");
 const Hoek = require("@hapi/hoek");
 const { formatData } = require("./utils/jsonformat");
+const { getGithubRepo } = require("./utils/github");
 
 const init = async () => {
   const server = Hapi.server({
@@ -18,6 +19,8 @@ const init = async () => {
       html: require("handlebars"),
     },
     relativeTo: __dirname,
+    layout: true,
+    layoutPath: "views/layout",
     path: "views",
   });
 
@@ -45,6 +48,26 @@ const init = async () => {
     path: "/data",
     handler: (request, h) => {
       return formatData(request.payload);
+    },
+  });
+
+  server.route({
+    method: "GET",
+    path: "/github",
+    handler: async (request, h) => {
+      let { page } = request.query;
+      page = page ? parseInt(page, 10) : 1;
+      const count = 10;
+      const { items, total_count } = await getGithubRepo(
+        "nodejs+user:google",
+        page,
+        count
+      );
+      return h.view("github", {
+        items,
+        previousPage: page > 1 ? page - 1 : null,
+        nextPage: page < Math.ceil(total_count / count) ? page + 1 : null,
+      });
     },
   });
 

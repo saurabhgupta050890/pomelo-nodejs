@@ -1,0 +1,43 @@
+<div style="margin: auto; text-align: center">
+  <h2>Github "NodeJS" Repos</h2>
+  <div style="text-align: center">
+    <table>
+      <thead>
+        <tr>
+          <th>Repo Name</th>
+          <th>Description</th>
+          <th>Owner</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each items}}
+        <tr>
+          <td>
+            <a href="{{html_url}}" target="_blank">{{full_name}}</a>
+          </td>
+          <td>{{description}}</td>
+          <td>
+            <a href="{{owner.html_url}}" target="_blank">
+              <img src="{{owner.avatar_url}}" width="60" height="60"
+            /></a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <div
+      style="
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      {{#if previousPage}}
+      <a href="/github?page={{previousPage}}" style="margin-right: 5px">Prev</a>
+      {{/if}} {{#if nextPage}}
+      <a href="/github?page={{nextPage}}" style="margin-right: 5px">Next</a>
+      {{/if}}
+    </div>
+  </div>
+</div>

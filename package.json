@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "start:dev": "nodemon -e js,html"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,10 @@
   "dependencies": {
     "@hapi/hapi": "^20.2.2",
     "@hapi/vision": "^6.1.0",
+    "axios": "^0.27.2",
     "handlebars": "^4.7.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }
