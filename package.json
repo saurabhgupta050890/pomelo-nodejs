@@ -1,0 +1,23 @@
+{
+  "name": "pomelo-nodejs",
+  "version": "1.0.0",
+  "description": "A Hapi JS application to format the json data and search nodejs repos on github",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saurabhgupta050890/pomelo-nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saurabhgupta050890/pomelo-nodejs/issues"
+  },
+  "homepage": "https://github.com/saurabhgupta050890/pomelo-nodejs#readme",
+  "dependencies": {
+    "@hapi/hapi": "^20.2.2",
+    "handlebars": "^4.7.7"
+  }
+}
