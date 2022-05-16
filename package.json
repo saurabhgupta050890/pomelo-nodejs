@@ -4,7 +4,8 @@
   "description": "A Hapi JS application to format the json data and search nodejs repos on github",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   "homepage": "https://github.com/saurabhgupta050890/pomelo-nodejs#readme",
   "dependencies": {
     "@hapi/hapi": "^20.2.2",
+    "@hapi/vision": "^6.1.0",
     "handlebars": "^4.7.7"
   }
 }
