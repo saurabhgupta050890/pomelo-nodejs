@@ -1,8 +1,4 @@
-"use strict";
-
-const Path = require("path");
 const Hapi = require("@hapi/hapi");
-const Hoek = require("@hapi/hoek");
 const { formatData } = require("./utils/jsonformat");
 const { getGithubRepo } = require("./utils/github");
 
@@ -51,6 +47,9 @@ const init = async () => {
     },
   });
 
+  /**
+   * Route to render the gihub repo serach page
+   */
   server.route({
     method: "GET",
     path: "/github",
